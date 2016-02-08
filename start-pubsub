@@ -1,0 +1,7 @@
+#!/bin/bash
+
+[ -d "${DATA_DIR}" ] && mkdir "${DATA_DIR}"
+
+source /root/.bashrc
+
+/root/google-cloud-sdk/bin/gcloud beta emulators pubsub start --data-dir "${DATA_DIR}" --host-port "0.0.0.0:${HOST_PORT}" >>/var/log/pubsub.log 2>&1 &
