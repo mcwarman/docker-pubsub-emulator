@@ -32,4 +32,10 @@ $ docker run -it --name pubsub-emulator -p 8042:8042 -v /path/to/my/data/folder:
 
 You can also change the port where the emulator runs by editing the HOST_PORT environment variable. 
 
+## Logs
+
+The emulator logs are stored in /var/log/pubsub.log
+
+
+
 
