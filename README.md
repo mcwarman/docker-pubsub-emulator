@@ -7,8 +7,8 @@ However, it is not very useful if you want to run in a containerized environment
 # How to use
 
 ```
-$ docker pull samnco/pubsub-emulator:2016.01.22
-$ docker run -it --name pubsub-emulator -p 8042:8042 samnco/pubsub-emulator:2016.01.22
+$ docker build -t pubsub-emulator:latest .
+$ docker run --rm -d --name pubsub-emulator -p 8042:8042 pubsub-emulator:latest
 ```
 
 Now you need to run the equivalent of the ```$(gcloud beta emulators pubsub env-init)``` command
@@ -25,7 +25,7 @@ Now you can use the standard APIs such as [gcloud-python](https://github.com/goo
 You can bind a volume to /data in the container to get resilient data. 
 
 ```
-$ docker run -it --name pubsub-emulator -p 8042:8042 -v /path/to/my/data/folder:/data samnco/pubsub-emulator:2016.01.22
+$ docker run -it --name pubsub-emulator -p 8042:8042 -v /path/to/my/data/folder:/data pubsub-emulator:latest
 ```
 
 ## Port
