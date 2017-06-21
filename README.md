@@ -7,8 +7,10 @@ However, it is not very useful if you want to run in a containerized environment
 # How to use
 
 ```
-$ docker build -t pubsub-emulator:latest .
-$ docker run --rm -d --name pubsub-emulator -p 8042:8042 pubsub-emulator:latest
+$ git clone https://github.com/mcwarman/docker-pubsub-emulator.git
+$ cd docker-pubsub-emulator
+$ docker build -t mcwarman/pubsub-emulator:latest .
+$ docker run --rm -d --name pubsub-emulator -p 8042:8042 mcwarman/pubsub-emulator:latest
 ```
 
 Now you need to run the equivalent of the ```$(gcloud beta emulators pubsub env-init)``` command
@@ -25,7 +27,7 @@ Now you can use the standard APIs such as [gcloud-python](https://github.com/goo
 You can bind a volume to /data in the container to get resilient data. 
 
 ```
-$ docker run -it --name pubsub-emulator -p 8042:8042 -v /path/to/my/data/folder:/data pubsub-emulator:latest
+$ docker run -it --name pubsub-emulator -p 8042:8042 -v /path/to/my/data/folder:/data mcwarman/pubsub-emulator:latest
 ```
 
 ## Port
@@ -34,7 +36,7 @@ You can also change the port where the emulator runs by editing the HOST_PORT en
 
 ## Logs
 
-The emulator logs are stored in /var/log/pubsub.log
+The emulator logs are stored in /var/log/pubsub.log, and also available at `docker log ...`.
 
 
 
