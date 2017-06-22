@@ -1,5 +1,6 @@
 import unittest
 import requests
+import sys
 
 class PubsubGetTopicsTest (unittest.TestCase):
     def runTest(self):
@@ -12,6 +13,16 @@ def suite():
     return suite
 
 if __name__ == '__main__':
-    runner = unittest.TextTestRunner()
+    
+    print "#" * 70
+    print "Test Runner: Docker Google PubSub emulator"
+    print "#" * 70
+
+    runner = unittest.TextTestRunner(verbosity=2)
     test_suite = suite()
-    runner.run (test_suite)
+    result = runner.run (test_suite)
+    
+    if result.wasSuccessful():
+        sys.exit(0)
+    else:
+        sys.exit(1)
