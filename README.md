@@ -6,10 +6,23 @@ However, it is not very useful if you want to run in a containerized environment
 
 # How to use
 
+## Building Image Locally
+
 ```
 $ git clone https://github.com/mcwarman/docker-pubsub-emulator.git
 $ cd docker-pubsub-emulator
 $ docker build -t mcwarman/pubsub-emulator:latest .
+```
+
+## Pulling Image from Docker Hub
+
+```
+ $ docker pull mcwarman/pubsub-emulator
+```
+
+## Using Image
+
+```
 $ docker run --rm -d --name pubsub-emulator -p 8042:8042 mcwarman/pubsub-emulator:latest
 ```
 
