@@ -7,7 +7,7 @@ services:
 
 install:
   - docker build -t mcwarman/pubsub-emulator .
-  - docker run -d -p 127.0.0.1:8042:8042 --name pubsub-emulator mcwarman/pub-subemulator
+  - docker run -d -p 127.0.0.1:8042:8042 --name pubsub-emulator mcwarman/pubsub-emulator
 
 before_script:
   - pip install requests
