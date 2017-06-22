@@ -1,4 +1,4 @@
-# Docker Container for Google PubSub emulator
+# Docker Google PubSub emulator [![Build Status](https://travis-ci.org/mcwarman/docker-pubsub-emulator.svg?branch=master)](https://travis-ci.org/mcwarman/docker-pubsub-emulator)
 
 The gcloud suite has an emulator for Google PubSub, which is great for testing locally how to run code against their APIs. 
 
