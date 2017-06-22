@@ -13,7 +13,6 @@ RUN \
   cat /root/google-cloud-sdk/completion.bash.inc | bash && \
   /root/google-cloud-sdk/bin/gcloud components install -q pubsub-emulator beta && \
   mkdir ${DATA_DIR} && \
-  ln -sf /dev/stdout /var/log/pubsub.log && \
   chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
