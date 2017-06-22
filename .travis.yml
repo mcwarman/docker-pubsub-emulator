@@ -1,0 +1,18 @@
+language: python
+python:
+  - 2.7
+
+services:
+  - docker
+
+install:
+  - docker build -t mcwarman/pubsub-emulator .
+  - docker run -d -p 127.0.0.1:8042:8042 --name pubsub-emulator mcwarman/pub-subemulator
+
+before_script:
+  - pip install requests
+
+script:
+  - docker ps | grep -q pubsub-emulator
+  - python tests.py
+
