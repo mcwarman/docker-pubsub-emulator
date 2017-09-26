@@ -14,7 +14,7 @@ services:
 
 install:
   - docker build -t $REPO:$TRAVIS_BUILD_NUMBER .
-  - docker run -d -p 127.0.0.1:8042:8042 --name $CONTAINER $REPO
+  - docker run -d -p 127.0.0.1:8042:8042 --name $CONTAINER $REPO:$TRAVIS_BUILD_NUMBER
 
 before_script:
   - pip install requests
