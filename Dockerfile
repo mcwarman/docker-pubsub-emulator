@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:8-jdk
 
 EXPOSE 8042
 
@@ -9,9 +9,9 @@ ADD docker-entrypoint.sh /
 
 RUN \
   curl https://sdk.cloud.google.com | bash && \
-  echo ". /root/google-cloud-sdk/path.bash.inc" >> /root/.bashrc && \
-  echo ". /root/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc  && \
-  bash -ic "gcloud components install -q pubsub-emulator" && \
+  cat /root/google-cloud-sdk/path.bash.inc | bash && \
+  cat /root/google-cloud-sdk/completion.bash.inc | bash && \
+  /root/google-cloud-sdk/bin/gcloud components install -q pubsub-emulator beta && \
   mkdir ${DATA_DIR} && \
   chmod +x /docker-entrypoint.sh
 
