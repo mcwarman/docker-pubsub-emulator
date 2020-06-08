@@ -5,7 +5,7 @@ import sys
 class PubsubGetTopicsTest (unittest.TestCase):
     def runTest(self):
         r = requests.get("http://localhost:8042/v1/projects/interlok-test/topics")
-        self.failUnless (r.status_code==200, 'HTTP status code not 200')
+        self.assertTrue (r.status_code==200, 'HTTP status code not 200')
 
 def suite():
     suite = unittest.TestSuite()
@@ -14,9 +14,7 @@ def suite():
 
 if __name__ == '__main__':
     
-    print ("#" * 70)
     print ("Test Runner: Docker Google PubSub emulator")
-    print ("#" * 70)
 
     runner = unittest.TextTestRunner(verbosity=2)
     test_suite = suite()
