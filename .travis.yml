@@ -1,6 +1,6 @@
 language: python
 python:
-  - 2.7
+  - 3.8
 
 env:
   global:
@@ -17,7 +17,7 @@ install:
   - docker run -d -p 127.0.0.1:8042:8042 --name $CONTAINER $REPO:$TRAVIS_BUILD_NUMBER
 
 before_script:
-  - pip install requests
+  - pip install -r requirements.txt
 
 script:
   - docker ps | grep -q $CONTAINER

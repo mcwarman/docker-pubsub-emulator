@@ -11,7 +11,7 @@ RUN \
   curl https://sdk.cloud.google.com | bash && \
   cat /root/google-cloud-sdk/path.bash.inc | bash && \
   cat /root/google-cloud-sdk/completion.bash.inc | bash && \
-  /root/google-cloud-sdk/bin/gcloud components install -q pubsub-emulator && \
+  /root/google-cloud-sdk/bin/gcloud components install -q pubsub-emulator beta && \
   mkdir ${DATA_DIR} && \
   chmod +x /docker-entrypoint.sh
 

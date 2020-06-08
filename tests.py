@@ -14,9 +14,9 @@ def suite():
 
 if __name__ == '__main__':
     
-    print "#" * 70
-    print "Test Runner: Docker Google PubSub emulator"
-    print "#" * 70
+    print ("#" * 70)
+    print ("Test Runner: Docker Google PubSub emulator")
+    print ("#" * 70)
 
     runner = unittest.TextTestRunner(verbosity=2)
     test_suite = suite()
