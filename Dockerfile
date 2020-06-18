@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk
+FROM azul/zulu-openjdk-alpine:8
 
 EXPOSE 8042
 
@@ -8,9 +8,8 @@ ENV HOST_PORT 8042
 ADD docker-entrypoint.sh /
 
 RUN \
+  apk add --no-cache --update ca-certificates bash curl python3  && \
   curl https://sdk.cloud.google.com | bash && \
-  cat /root/google-cloud-sdk/path.bash.inc | bash && \
-  cat /root/google-cloud-sdk/completion.bash.inc | bash && \
   /root/google-cloud-sdk/bin/gcloud components install -q pubsub-emulator beta && \
   mkdir ${DATA_DIR} && \
   chmod +x /docker-entrypoint.sh
